@@ -13,5 +13,6 @@ extern unsigned long time = millis();
 extern unsigned long oldTime = time;
 extern bool add = 1;
 
+void eepromClear();
 void readButtons();
 void ledBlink(int blinkTime);
