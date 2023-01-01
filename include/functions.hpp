@@ -11,7 +11,7 @@ extern float money;
 extern float oldMoney;
 extern unsigned long time = millis();
 extern unsigned long oldTime = time;
-extern bool add = 1;
+extern bool add = true;
 
 void eepromClear();
 void readButtons();
