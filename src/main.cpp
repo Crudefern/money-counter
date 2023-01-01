@@ -30,14 +30,14 @@ void setup() {
   EEPROM.get(addr, money);
   oldMoney = money;
 }
-
+/*
 //helpers
 void ledblink(int blinkTime) {
   digitalWrite(LED_BUILTIN, HIGH);
   delay(blinkTime);
   digitalWrite(LED_BUILTIN, LOW);
 }
-
+*/
 
 void loop() {
   time = millis();
