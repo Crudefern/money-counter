@@ -16,3 +16,4 @@ extern bool add;
 void eepromClear();
 void readButtons();
 void ledBlink(int blinkTime);
+void setupPins();

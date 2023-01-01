@@ -13,12 +13,7 @@ SoftwareSerial mySerial(-1, 10); // RX, TX (TX is XTAL2/TP2)
 
 void setup() {
   mySerial.begin(9600); //for debugging
-  //set the pin states
-  pinMode(C1, INPUT_PULLUP);
-  pinMode(C10, INPUT_PULLUP);
-  pinMode(C25, INPUT_PULLUP);
-  pinMode(S1, INPUT_PULLUP);
-  pinMode(LED_BUILTIN, OUTPUT);
+  setupPins(); //set the pin states
   //setup money count from eeprom
   if (digitalRead(C1) && digitalRead(C10) && digitalRead(C25) && digitalRead(S1)) {eepromClear();}
   EEPROM.get(addr, money);

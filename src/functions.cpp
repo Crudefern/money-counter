@@ -38,3 +38,12 @@ void readButtons() {
   oldTime = time;
   ledBlink(100);
 }
+
+void setupPins() {
+  //set the pin states
+  pinMode(C1, INPUT_PULLUP);
+  pinMode(C10, INPUT_PULLUP);
+  pinMode(C25, INPUT_PULLUP);
+  pinMode(S1, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
