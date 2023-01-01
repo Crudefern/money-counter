@@ -16,7 +16,7 @@ void eepromClear() {
 
 void readButtons() {
   //read the buttons
-  int to_add = 0;
+  float to_add = 0;
   if (add == true) {
     if (digitalRead(C1)) {to_add + 0.01;}
     if (digitalRead(C10)) {to_add + 0.10;}
