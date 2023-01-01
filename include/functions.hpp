@@ -17,3 +17,4 @@ void eepromClear();
 void readButtons();
 void ledBlink(int blinkTime);
 void setupPins();
+void multiBlink(int blinkTime,int blinkNumber);

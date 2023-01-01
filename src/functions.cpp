@@ -13,6 +13,11 @@ bool add = true;
 float money = 0; 
 float oldMoney;
 
+void multiBlink(int blinkTime,int blinkNumber) {
+  for (int i = 0;i <= blinkNumber;i++) {
+    ledBlink(blinkTime);
+  }
+}
 
 void ledBlink(int blinkTime) {
   digitalWrite(LED_BUILTIN, HIGH);
