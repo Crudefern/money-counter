@@ -23,6 +23,7 @@ void setup() {
 
 void loop() {
   time = millis();
+  readButtons();
   //write to the EEPROM
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;
