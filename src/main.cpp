@@ -8,7 +8,7 @@ const float wantMoney = 242.98; //set this to the target amout of money you want
 // A tinytesla with spare IGBTs and the discount code ELECTROBOOM10 costs $242.98
 // An oculus quest 2 256GB with the standard strap is $429.99
 
-SoftwareSerial mySerial(-1, 10); // RX, TX
+SoftwareSerial mySerial(-1, 10); // RX, TX (TX is XTAL2/TP2)
 
 
 void setup() {
