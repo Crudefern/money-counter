@@ -9,6 +9,7 @@ TODO:
 Ability to set wanted amount.
 Get functions.cpp working.
 Write proper README.
+Finish eepromClear().
 Add comments and tidy up code.
 
 DONE:
