@@ -2,7 +2,7 @@
 #include <EEPROM.h>
 #include <SoftwareSerial.h>
 #include "functions.hpp"
-//setup values
+//setup values (change pin numbers in src/functions.cpp)
 const int timeout = 5000; // time before writing to the eeprom
 const float wantMoney = 242.98; // set this to the target amout of money you want
 // A tinytesla with spare IGBTs and the discount code ELECTROBOOM10 costs $242.98
