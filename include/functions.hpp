@@ -1,4 +1,5 @@
 #include <Arduino.h>
+
 //button pins
 extern const int C1=10; //adds 1 cent
 extern const int C10=9; //adds 10 cents
