@@ -11,6 +11,7 @@ extern float money;
 extern float oldMoney;
 extern unsigned long time = millis();
 extern unsigned long oldTime = time;
+extern bool add = 1;
 
 void readButtons();
 void ledBlink(int blinkTime);
