@@ -9,13 +9,7 @@ const float wantMoney = 242.98; //set this to the target amout of money you want
 // An oculus quest 2 256GB with the standard strap is $429.99
 
 SoftwareSerial mySerial(-1, 10); // RX, TX
-/*
-void eepromClear() {
-  for (int i = 0 ; i < EEPROM.length() ; i++) {
-    EEPROM.write(i, 0);
-  }
-}
-*/
+
 
 void setup() {
   mySerial.begin(9600); //for debugging
@@ -30,14 +24,7 @@ void setup() {
   EEPROM.get(addr, money);
   oldMoney = money;
 }
-/*
-//helpers
-void ledblink(int blinkTime) {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(blinkTime);
-  digitalWrite(LED_BUILTIN, LOW);
-}
-*/
+
 
 void loop() {
   time = millis();
