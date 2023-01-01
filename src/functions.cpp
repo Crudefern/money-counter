@@ -10,7 +10,7 @@ const int addr = 0;
 unsigned long time = millis();
 unsigned long oldTime = time;
 bool add = true;
-float money = 0; 
+float money; 
 float oldMoney;
 
 void multiBlink(int blinkTime,int blinkNumber) {
@@ -26,7 +26,7 @@ void ledBlink(int blinkTime) {
 }
 
 void eepromClear() {
-  money == 0;
+  money = 0;
   EEPROM.put(addr,money);
   multiBlink(50,5);
 }
@@ -40,7 +40,7 @@ void readButtons() {
   if (digitalRead(C25)) {to_add = 0.25;}
   if (digitalRead(S1)) {to_add = 1;}
   if (add == true) {money = money + to_add;} else {money = money - to_add;}
-  if (money < 0) {money == 0;}
+  if (money < 0) {money = 0;}
   oldTime = time;
   ledBlink(100);
 }
