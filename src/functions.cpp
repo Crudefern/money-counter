@@ -2,7 +2,7 @@
 #include <EEPROM.h>
 #include "functions.hpp"
 
-void ledblink(int blinkTime) {
+void ledBlink(int blinkTime) {
   digitalWrite(LED_BUILTIN, HIGH);
   delay(blinkTime);
   digitalWrite(LED_BUILTIN, LOW);
@@ -31,5 +31,5 @@ void readButtons() {
 
   money = money + to_add;
   oldTime = time;
-  ledblink(100);
+  ledBlink(100);
 }

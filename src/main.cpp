@@ -46,9 +46,9 @@ void loop() {
     oldMoney = money;
     oldTime = time;
     EEPROM.put(addr, money);
-    ledblink(1000);
+    ledBlink(1000);
   }
   //blink when you have enough money
-  if (money >= wantMoney) {while (true) {ledblink(50); delay(100);}}
+  if (money >= wantMoney) {while (true) {ledBlink(50); delay(100);}}
 //  mySerial.println(money); //debugging
 }
