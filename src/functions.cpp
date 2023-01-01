@@ -10,6 +10,8 @@ const int addr = 0;
 unsigned long time = millis();
 unsigned long oldTime = time;
 bool add = true;
+float money = 0; 
+float oldMoney;
 
 
 void ledBlink(int blinkTime) {
