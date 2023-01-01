@@ -26,9 +26,8 @@ void ledBlink(int blinkTime) {
 }
 
 void eepromClear() {
-  for (int i = 0 ; i < EEPROM.length() ; i++) {
-    EEPROM.write(i, 0);
-  }
+  money == 0;
+  EEPROM.put(addr,money);
   multiBlink(50,5);
 }
 
