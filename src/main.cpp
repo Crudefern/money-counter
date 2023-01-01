@@ -32,6 +32,6 @@ void loop() {
     ledBlink(1000);
   }
   // blink when you have enough money
-  if (money >= wantMoney) {while (true) {ledBlink(50); delay(100);}}
+  if (money >= wantMoney) {while (true) {multiBlink(200,32767);}}
   // mySerial.println(money); //debugging
 }

@@ -29,6 +29,7 @@ void eepromClear() {
   for (int i = 0 ; i < EEPROM.length() ; i++) {
     EEPROM.write(i, 0);
   }
+  multiBlink(50,5);
 }
 
 void readButtons() {
