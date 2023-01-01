@@ -10,6 +10,13 @@ const float wantMoney = 242.98; //set this to the target amout of money you want
 
 SoftwareSerial mySerial(-1, 10); // RX, TX
 
+void eepromClear() {
+  for (int i = 0 ; i < EEPROM.length() ; i++) {
+    EEPROM.write(i, 0);
+  }
+}
+
+
 void setup() {
   mySerial.begin(9600); //for debugging
   //set the pin states
@@ -23,6 +30,7 @@ void setup() {
   EEPROM.get(addr, money);
   oldMoney = money;
 }
+
 //helpers
 void ledblink(int blinkTime) {
   digitalWrite(LED_BUILTIN, HIGH);
@@ -30,15 +38,9 @@ void ledblink(int blinkTime) {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
-void eepromClear() {
-  for (int i = 0 ; i < EEPROM.length() ; i++) {
-    EEPROM.write(i, 0);
-  }
-}
 
 void loop() {
   time = millis();
-
   //write to the EEPROM
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;

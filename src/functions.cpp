@@ -1,15 +1,28 @@
 #include <Arduino.h>
-
-void readButtons() {
-  //read the buttons
-  if (digitalRead(C1)) {money = money + 0.01;oldTime = time; ledblink(100);}
-  if (digitalRead(C10)) {money = money + 0.10;oldTime = time; ledblink(100);}
-  if (digitalRead(C25)) {money = money + 0.25;oldTime = time; ledblink(100);}
-  if (digitalRead(S1)) {money = money + 1;oldTime = time; ledblink(100);}
-}
+#include <EEPROM.h>
+#include "functions.hpp"
 
 void ledblink(int blinkTime) {
   digitalWrite(LED_BUILTIN, HIGH);
   delay(blinkTime);
   digitalWrite(LED_BUILTIN, LOW);
+}
+
+void eepromClear() {
+  for (int i = 0 ; i < EEPROM.length() ; i++) {
+    EEPROM.write(i, 0);
+  }
+}
+
+void readButtons() {
+  //read the buttons
+  int to_add = 0;
+  if (digitalRead(C1)) {to_add + 0.01;}
+  if (digitalRead(C10)) {to_add + 0.10;}
+  if (digitalRead(C25)) {to_add + 0.25;}
+  if (digitalRead(S1)) {to_add + 1;}
+
+  money = money + to_add;
+  oldTime = time;
+  ledblink(100);
 }
