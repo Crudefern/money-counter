@@ -41,6 +41,7 @@ void readButtons() {
   if (digitalRead(C25)) {to_add = 0.25;}
   if (digitalRead(S1)) {to_add = 1;}
   if (add == true) {money = money + to_add;} else {money = money - to_add;}
+  if (money < 0) {money == 0;}
   oldTime = time;
   ledBlink(100);
 }
