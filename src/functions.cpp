@@ -27,7 +27,7 @@ void ledBlink(int blinkTime) {
 
 void eepromClear() {
   money = 0;
-  EEPROM.put(addr,money);
+  // EEPROM.put(addr,money);
   multiBlink(50,5);
 }
 
@@ -42,7 +42,8 @@ void readButtons() {
   if (add == true) {money = money + to_add;} else {money = money - to_add;}
   if (money < 0) {money = 0;}
   oldTime = time;
-  ledBlink(100);
+  if (to_add != 0) {ledBlink(100);}
+  
 }
 
 void setupPins() {
