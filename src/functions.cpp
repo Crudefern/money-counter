@@ -54,3 +54,6 @@ void setupPins() {
   pinMode(S1, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
 }
+void digitalReadInverted(int pin) {
+  ;
+}
