@@ -16,7 +16,7 @@ void setup() {
   setupPins(); //set the pin states
   // setup money count from eeprom
   if (digitalRead(C1) == 0 && digitalRead(C10) == 0 && digitalRead(C25) == 0 & digitalRead(S1) == 0) {eepromClear();}
-  //EEPROM.get(addr, money);
+  // EEPROM.get(addr, money);
   money = 0;
   oldMoney = money;
 }
