@@ -26,12 +26,6 @@ void ledBlink(int blinkTime) {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
-void eepromClear() {
-  money = 0;
-  // EEPROM.put(addr,money);
-  multiBlink(500,5);
-}
-
 void readButtons() {
   //read the buttons
   float to_add = 0;

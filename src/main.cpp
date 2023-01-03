@@ -17,11 +17,9 @@ const EEstore<float> eeMoney(0);
 void setup() {
   mySerial.begin(9600); //for debugging
   setupPins(); //set the pin states
-  // setup money count from eeprom
   delay(50);
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1)) {eepromClear();}
-  eeMoney >> money;
-  // money = 0;
+  eeMoney >> money; // get money count from eeprom
   oldMoney = money;
 }
 
@@ -33,11 +31,18 @@ void loop() {
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;
     oldTime = time;
-    // eeMoney << money;
-    ledBlink(1000);
+    // eeMoney << money; // write money count to eeprom
+    multiBlink(100,3);
   }
   // blink when you have enough money
   if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
   if (money < 0) {money = 0;}
   mySerial.println(money); //debugging
+}
+
+
+void eepromClear() { //this has to be put here because of the eevar library
+  money = 0;
+  // eeMoney << money;
+  multiBlink(500,5);
 }
