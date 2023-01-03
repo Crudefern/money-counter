@@ -2,6 +2,8 @@
 #include <EEPROM.h>
 #include <SoftwareSerial.h>
 #include "functions.hpp"
+#define EE_TEST_VAL 0x315A    // library default is 0x3159
+#include "EEvar.h"
 //setup values (change pin numbers in src/functions.cpp)
 const int timeout = 5000; // time before writing to the eeprom
 const float wantMoney = 242.98; // set this to the target amout of money you want
@@ -10,16 +12,17 @@ const float wantMoney = 242.98; // set this to the target amout of money you wan
 
 SoftwareSerial mySerial(-1, 4); // RX, TX (TX is XTAL2/TP2)
 
+const EEstore<float> eeMoney(0);
 
 void setup() {
   mySerial.begin(9600); //for debugging
   setupPins(); //set the pin states
   // setup money count from eeprom
+  delay(50);
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1)) {eepromClear();}
-  // EEPROM.get(addr, money); // WORK ON!!!!!!!
-  money = 0;
+  eeMoney >> money;
+  // money = 0;
   oldMoney = money;
-  eepromClear();
 }
 
 
@@ -30,7 +33,7 @@ void loop() {
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;
     oldTime = time;
-    // EEPROM.put(addr, money);
+    // eeMoney << money;
     ledBlink(1000);
   }
   // blink when you have enough money
