@@ -27,6 +27,7 @@ void setup() {
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1)) {eepromClear();}
   eeMoney >> money; // get money count from eeprom
   oldMoney = money;
+  ledBlink(15);
 }
 
 
