@@ -2,6 +2,7 @@
 #include <EEPROM.h>
 // #include <SoftwareSerial.h>
 #include "functions.hpp"
+// #define EE_TEST_VAL 0x315A
 #include "EEvar.h"
 //setup values (change pin numbers in src/functions.cpp)
 const int timeout = 2000; // time before writing to the eeprom
@@ -12,6 +13,12 @@ const float wantMoney = 242.98; // set this to the target amout of money you wan
 // SoftwareSerial mySerial(-1, 4); // RX, TX (TX is XTAL2/TP2)
 
 const EEstore<float> eeMoney(0);
+
+void eepromClear() { //this has to be put here because of the eevar library
+  money = 0;
+  eeMoney << money;
+  multiBlink(500,5);
+}
 
 void setup() {
   // mySerial.begin(9600); //for debugging
@@ -42,8 +49,3 @@ void loop() {
 }
 
 
-void eepromClear() { //this has to be put here because of the eevar library
-  money = 0;
-  eeMoney << money;
-  multiBlink(500,5);
-}
