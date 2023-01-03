@@ -15,7 +15,7 @@ void setup() {
   mySerial.begin(9600); //for debugging
   setupPins(); //set the pin states
   // setup money count from eeprom
-  // if (digitalRead(C1) && digitalRead(C10) && digitalRead(C25) && digitalRead(S1)) {eepromClear();}
+  if (digitalRead(C1) == 0 && digitalRead(C10) == 0 && digitalRead(C25) == 0 & digitalRead(S1) == 0) {eepromClear();}
   EEPROM.get(addr, money);
   oldMoney = money;
 }
@@ -32,6 +32,6 @@ void loop() {
     ledBlink(1000);
   }*/
   // blink when you have enough money
-  // if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
+  if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
   mySerial.println(money); //debugging
 }
