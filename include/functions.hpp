@@ -13,7 +13,6 @@ extern unsigned long time;
 extern unsigned long oldTime;
 extern bool add;
 
-void eepromClear();
 void readButtons();
 void ledBlink(int blinkTime);
 void setupPins();
