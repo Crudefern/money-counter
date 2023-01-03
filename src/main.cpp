@@ -16,22 +16,24 @@ void setup() {
   setupPins(); //set the pin states
   // setup money count from eeprom
   if (digitalRead(C1) == 0 && digitalRead(C10) == 0 && digitalRead(C25) == 0 & digitalRead(S1) == 0) {eepromClear();}
-  EEPROM.get(addr, money);
+  //EEPROM.get(addr, money);
+  money = 0;
   oldMoney = money;
 }
 
 
 void loop() {
   time = millis();
-  readButtons();/*
+  readButtons();
   // write to the EEPROM 
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;
     oldTime = time;
-    EEPROM.put(addr, money);
+    // EEPROM.put(addr, money);
     ledBlink(1000);
-  }*/
+  }
   // blink when you have enough money
   if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
+  if (money < 0) {money = 0;}
   mySerial.println(money); //debugging
 }

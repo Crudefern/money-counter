@@ -10,7 +10,7 @@ const int addr = 0;
 unsigned long time = millis();
 unsigned long oldTime = time;
 bool add = true;
-float money; 
+float money;
 float oldMoney;
 
 void multiBlink(int blinkTime,int blinkNumber) {
@@ -36,12 +36,11 @@ void readButtons() {
   //read the buttons
   float to_add = 0;
 
-  if (digitalRead(C1) == 0) {to_add = 0.01;}
-  if (digitalRead(C10) == 0) {to_add = 0.10;}
-  if (digitalRead(C25) == 0) {to_add = 0.25;}
-  if (digitalRead(S1) == 0) {to_add = 1;}
-  if (add == true) {money = money + to_add;} else {money = money - to_add;}
-  if (money < 0) {money = 0;}
+  if (digitalRead(C1) == 0) {to_add += 0.01;}
+  if (digitalRead(C10) == 0) {to_add += 0.10;}
+  if (digitalRead(C25) == 0) {to_add += 0.25;}
+  if (digitalRead(S1) == 0) {to_add += 1;}
+  if (add == true) {money += to_add;} else {money -= to_add;}
   oldTime = time;
   if (to_add != 0) {ledBlink(100);}
   while (digitalRead(C1) == 0 || digitalRead(C10) == 0 || digitalRead(C25) == 0 || digitalRead(S1) == 0) {delay(1);}
