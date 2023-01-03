@@ -14,7 +14,7 @@ float money;
 float oldMoney;
 
 void multiBlink(int blinkTime,int blinkNumber) {
-  for (int i = 0;i <= blinkNumber;i++) {
+  for (int i = 0;i < blinkNumber;i++) {
     ledBlink(blinkTime);
     delay(blinkTime);
   }
@@ -29,7 +29,7 @@ void ledBlink(int blinkTime) {
 void eepromClear() {
   money = 0;
   // EEPROM.put(addr,money);
-  multiBlink(50,5);
+  multiBlink(500,5);
 }
 
 void readButtons() {
@@ -42,8 +42,12 @@ void readButtons() {
   if (digitalRead(S1) == 0) {to_add += 1;}
   if (add == true) {money += to_add;} else {money -= to_add;}
   oldTime = time;
-  if (to_add != 0) {ledBlink(100);}
-  while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
+
+  if (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {
+    digitalWrite(LED_BUILTIN,HIGH);
+    while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
+    digitalWrite(LED_BUILTIN,LOW);
+  }
 }
 
 void setupPins() {

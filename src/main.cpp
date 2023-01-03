@@ -19,6 +19,7 @@ void setup() {
   // EEPROM.get(addr, money); // WORK ON!!!!!!!
   money = 0;
   oldMoney = money;
+  eepromClear();
 }
 
 
