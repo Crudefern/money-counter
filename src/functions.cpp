@@ -35,12 +35,13 @@ void readButtons() {
   if (digitalRead(C25) == 0) {to_add += 0.25;}
   if (digitalRead(S1) == 0) {to_add += 1;}
   if (add == true) {money += to_add;} else {money -= to_add;}
-  oldTime = time;
+  
 
   if (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {
     digitalWrite(LED_BUILTIN,HIGH);
     while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
     digitalWrite(LED_BUILTIN,LOW);
+    oldTime = time;
   }
 }
 
