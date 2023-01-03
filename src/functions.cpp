@@ -43,7 +43,7 @@ void readButtons() {
   if (add == true) {money += to_add;} else {money -= to_add;}
   oldTime = time;
   if (to_add != 0) {ledBlink(100);}
-  while (digitalRead(C1) == 0 || digitalRead(C10) == 0 || digitalRead(C25) == 0 || digitalRead(S1) == 0) {delay(1);}
+  while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
 }
 
 void setupPins() {
