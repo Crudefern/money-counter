@@ -17,7 +17,7 @@ const EEstore<float> eeMoney(0);
 void eepromClear() { //this has to be put here because of the eevar library
   money = 0;
   eeMoney << money;
-  multiBlink(500,5);
+  multiBlink(500,3);
 }
 
 void setup() {
