@@ -12,6 +12,7 @@ unsigned long oldTime = time;
 bool add = true;
 float money;
 float oldMoney;
+float wantMoney;
 
 void multiBlink(int blinkTime,int blinkNumber) {
   for (int i = 0;i < blinkNumber;i++) {
@@ -26,22 +27,21 @@ void ledBlink(int blinkTime) {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
-void readButtons() {
+void readButtons(float &input) {
   //read the buttons
   float to_add = 0;
-
   if (digitalRead(C1) == 0) {to_add += 0.01;}
   if (digitalRead(C10) == 0) {to_add += 0.10;}
   if (digitalRead(C25) == 0) {to_add += 0.25;}
   if (digitalRead(S1) == 0) {to_add += 1;}
-  if (add == true) {money += to_add;} else {money -= to_add;}
+  if (add == true) {input += to_add;} else {input -= to_add;}
   
 
   if (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {
     digitalWrite(LED_BUILTIN,HIGH);
     while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
     digitalWrite(LED_BUILTIN,LOW);
-    oldTime = time;
+    
   }
 }
 
@@ -53,3 +53,5 @@ void setupPins() {
   pinMode(S1, INPUT_PULLUP);
   pinMode(LED_BUILTIN, OUTPUT);
 }
+
+void subtractMode() {add = false;}
