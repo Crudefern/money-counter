@@ -14,7 +14,7 @@ extern unsigned long time;
 extern unsigned long oldTime;
 extern bool add;
 
-float readButtons(float &input);
+float readButtons();
 void ledBlink(int blinkTime);
 void setupPins();
 void multiBlink(int blinkTime,int blinkNumber);

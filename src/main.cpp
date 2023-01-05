@@ -22,7 +22,7 @@ void setup() {
   setupPins(); // set the pin states
   delay(50);
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1)) {eepromClear();}
-  if (!digitalRead(C25) && !digitalRead(S1)) {while (true) {wantMoney = 0;readButtons(wantMoney); // this line and the line below set and save wantMoney
+  if (!digitalRead(C25) && !digitalRead(S1)) {while (true) {wantMoney = 0;wantMoney += readButtons(); // this line and the line below set and save wantMoney
     if (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {eeWantMoney << wantMoney;while (true) {delay(1);
     }}}
   }
@@ -34,7 +34,7 @@ void setup() {
 
 void loop() {
   time = millis();
-  readButtons(money);
+  money += readButtons();
 
   // write to the EEPROM 
   if (money != oldMoney && time - oldTime >= timeout) {
