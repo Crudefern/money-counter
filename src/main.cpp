@@ -37,6 +37,7 @@ void loop() {
   money += readButtons();
 
   // write to the EEPROM 
+  
   if (money != oldMoney && time - oldTime >= timeout) {
     oldMoney = money;
     oldTime = time;
@@ -45,6 +46,6 @@ void loop() {
   }
 
   // blink when you have enough money
-  // if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
+  if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
   if (money < 0) {money = 0;} // a failsafe
 }

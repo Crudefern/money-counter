@@ -41,6 +41,7 @@ float readButtons() {
     while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
     digitalWrite(LED_BUILTIN,LOW);
   }
+  if (to_add != 0) {oldTime = time;}
   return to_add;
 }
 
