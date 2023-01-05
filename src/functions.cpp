@@ -34,14 +34,12 @@ float readButtons() {
   if (digitalRead(C10) == 0) {to_add += 0.10;}
   if (digitalRead(C25) == 0) {to_add += 0.25;}
   if (digitalRead(S1) == 0) {to_add += 1;}
-  if (add == true) {input += to_add;} else {input -= to_add;}
+  if (add == false) {to_add*=-1;}
   
-
   if (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {
     digitalWrite(LED_BUILTIN,HIGH);
     while (!digitalRead(C1) || !digitalRead(C10) || !digitalRead(C25) || !digitalRead(S1)) {delay(1);}
     digitalWrite(LED_BUILTIN,LOW);
-    
   }
   return to_add;
 }
