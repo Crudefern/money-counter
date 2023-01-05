@@ -1,6 +1,5 @@
 #include <Arduino.h>
 #include <EEPROM.h>
-// #include <SoftwareSerial.h>
 #include "functions.hpp"
 // #define EE_TEST_VAL 0x315A
 #include "EEvar.h"
@@ -30,7 +29,6 @@ void setup() {
   ledBlink(15);
 }
 
-
 void loop() {
   time = millis();
   readButtons(money);
@@ -47,5 +45,3 @@ void loop() {
   // if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
   if (money < 0) {money = 0;} // a failsafe
 }
-
-
