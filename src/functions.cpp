@@ -27,7 +27,7 @@ void ledBlink(int blinkTime) {
   digitalWrite(LED_BUILTIN, LOW);
 }
 
-void readButtons(float &input) {
+float readButtons(float &input) {
   //read the buttons
   float to_add = 0;
   if (digitalRead(C1) == 0) {to_add += 0.01;}
@@ -43,6 +43,7 @@ void readButtons(float &input) {
     digitalWrite(LED_BUILTIN,LOW);
     
   }
+  return to_add;
 }
 
 void setupPins() {
