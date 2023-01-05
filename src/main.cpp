@@ -1,7 +1,7 @@
 #include <Arduino.h>
 #include <EEPROM.h>
 #include "functions.hpp"
-#define EE_TEST_VAL 0x315A // uncomment when changing the hardcoded wantmoney
+// #define EE_TEST_VAL 0x315A // uncomment when changing the hardcoded wantmoney
 #include "EEvar.h"
 //setup values (change pin numbers in src/functions.cpp)
 const int timeout = 1000; // time in between the last button press and eeprom write
