@@ -26,15 +26,15 @@ void setup() {
   setupPins(); //set the pin states
   delay(50);
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1)) {eepromClear();}
-  if (!digitalRead(C25) && !digitalRead(S1)) {readButtons(wantMoney);}
+  // if (!digitalRead(C25) && !digitalRead(S1)) {readButtons(wantMoney);}
   eeMoney >> money; // get money count from eeprom
+  eeWantMoney >> wantMoney;
   oldMoney = money;
   ledBlink(15);
 }
 
 
 void loop() {
-  float tempMoney = 0;
   time = millis();
   readButtons(money);
 
@@ -48,8 +48,8 @@ void loop() {
   }
 
   // blink when you have enough money
-  if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
-  if (money < 0) {money = 0;}
+  // if (money >= wantMoney) {while (true) {multiBlink(30,32767);}}
+  if (money < 0) {money = 0;} // a failsafe
   // mySerial.println(money); //debugging
   // mySerial.println(oldMoney); //debugging
 }

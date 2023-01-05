@@ -55,3 +55,4 @@ void setupPins() {
 }
 
 void subtractMode() {add = false;}
+void addMode() {add = true;}

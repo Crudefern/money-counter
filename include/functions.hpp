@@ -19,3 +19,4 @@ void ledBlink(int blinkTime);
 void setupPins();
 void multiBlink(int blinkTime,int blinkNumber);
 void subtractMode();
+void addMode();
