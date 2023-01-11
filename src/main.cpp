@@ -18,7 +18,7 @@ void eepromClear() { // this has to be put here because of the eevar library
   multiBlink(500, 3);
 }
 
-void setup()  {
+void setup() {
   setupPins(); // set the pin states
   delay(50);
   if (!digitalRead(C1) && !digitalRead(C10) && !digitalRead(C25) && !digitalRead(S1))  {eepromClear();} // clear the eeprom
@@ -45,7 +45,7 @@ void loop() {
   money += readButtons(); // get button states
 
   // write to the EEPROM
-  if (money - oldMoney > 0.001 && time - oldTime >= timeout)  {
+  if (money - oldMoney > 0.001 && time - oldTime >= timeout) {
     oldMoney = money;
     oldTime = time;
     eeMoney << money; // write money count to eeprom
@@ -53,7 +53,7 @@ void loop() {
   }
 
   // blink when you have enough money
-  if (money >= wantMoney)  {
+  if (money >= wantMoney) {
     while (true) {multiBlink(30, 32767);}
   }
   if (money < 0) {money = 0;} // a failsafe
