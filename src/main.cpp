@@ -5,7 +5,7 @@
 #include "EEvar.h"
 // setup values (change pin numbers in src/functions.cpp)
 const int timeout = 1000; // time in between the last button press and eeprom write
-#define initialWantMoney 499.99f // set this to the target amout of money you want
+#define initialWantMoney 242.98f // set this to the target amout of money you want
 // A tinytesla with spare IGBTs and the discount code ELECTROBOOM10 costs $242.98
 // An oculus quest 2 256GB with the standard strap is $499.99
 
