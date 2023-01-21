@@ -1,5 +1,4 @@
 #include <Arduino.h>
-#include <EEPROM.h>
 #include "functions.hpp"
 // #define EE_TEST_VAL 0x315A // uncomment when changing the hardcoded wantmoney
 #include "EEvar.h"
