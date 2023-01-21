@@ -8,6 +8,7 @@ const int timeout = 1000; // time in between the last button press and eeprom wr
 #define initialWantMoney 242.98f // set this to the target amout of money you want
 // A tinytesla with spare IGBTs and the discount code ELECTROBOOM10 costs $242.98
 // An oculus quest 2 256GB with the standard strap is $499.99
+// KSP2 will cost $49.99 
 
 const EEstore<float> eeMoney(0);
 const EEstore<float> eeWantMoney(initialWantMoney);
