@@ -15,6 +15,3 @@ Ability to add money.
 Ability to reset the money count.
 Store the count to EEPROM and load it back on next poweron.
 Ability to remove money.
-
-
-DEADLINE: January 7 (Birthday)
